@@ -43,13 +43,44 @@ app_include_js = "lending.bundle.js"
 
 # fixtures
 fixtures = [
-	{"dt": "Role", "filters": [["role_name", "like", "Loan %"]]},
-	{"dt": "Workflow", "filters": [["name", "=", "Loan Application Workflow"]]},
+	# --- Roles / Role Profiles you introduce (name them with WH_ prefix) ---
+    {"dt": "Role", "filters": [["name", "like", "WH_%"]]},
+    {"dt": "Role Profile", "filters": [["role_profile", "like", "WH_%"]]},
+    
+	# {"dt": "Workflow", "filters": [["name", "=", "Loan Application Workflow"]]},
 	{"dt": "Workflow State", "filters": [["name", "not in", ("Rejected", "Approved", "Pending")]]},
 	{
 		"dt": "Workflow Action Master",
 		"filters": [["name", "not in", ("Reject", "Approve", "Review")]],
 	},
+     # --- Workflows & Notifications tied to your doctypes or flows ---
+    {"dt": "Workflow", "filters": [["document_type", "in", [
+        "Journal Entry", "Loan", "WH Event Log", "WH Posting Rule"
+    ]], ["name", "=", "Loan Application Workflow"]]},
+    
+	# --- Core UI/schema tweaks made via "Customize Form" ---
+    # Only export your own items (prefix your fields/props with "WH_")
+    {"dt": "Custom Field", "filters": [["name", "like", "WH_%"]]},
+    {"dt": "Property Setter", "filters": [["name", "like", "WH_%"]]},
+    
+	# --- Scripts (client/server) attached to ERPNext doctypes (JE, GL, etc.) ---
+    {"dt": "Client Script", "filters": [["module", "=", "Lending"]]},
+    {"dt": "Server Script", "filters": [["module", "=", "Lending"]]},
+     # --- Reports, Print Formats, Workspaces you add for WH ---
+    {"dt": "Report", "filters": [["module", "=", "Lending"]]},
+    {"dt": "Print Format", "filters": [["module", "=", "Lending"]]},
+    {"dt": "Workspace", "filters": [["module", "=", "Lending"]]},
+    
+	{"dt": "Notification", "filters": [["module", "=", "Lending"]]},
+    
+	# --- Optional: Website & Navbar branding (keeps logos/links portable) ---
+    # App/desk/login branding you configured through the UI
+    {"dt": "Website Settings", "filters": [["name", "=", "Website Settings"]]},
+    # {"dt": "Navbar Item", "filters": [["label", "like", "WH%"]]},
+    
+	# --- Optional if you created branded assets/templates ---
+    {"dt": "Letter Head", "filters": [["name", "like", "WH%"]]},
+    {"dt": "Email Template", "filters": [["name", "like", "WH%"]]},
 ]
 
 
