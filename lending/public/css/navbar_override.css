@@ -1,0 +1,4 @@
+/* Hide only the Help dropdown from the navbar */
+li.dropdown-help {
+  display: none !important;
+}

@@ -104,6 +104,12 @@ fixtures = [
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
+website_context = {
+    "navbar_template": "navbar/navbar.html"
+}
+app_include_css = "/assets/lending/css/navbar_override.css"
+
+
 # Home Pages
 # ----------
 

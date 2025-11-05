@@ -1,11 +1,59 @@
-#page-login {
-  background-color: white;
-  min-height: 100vh;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.page-content div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+#page-login {
+  background-color: white !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+}
+
+
+.login-page-wrapper {
+  width: 100%;
+  max-width: none !important; 
+  margin: 0 auto;
+}
+
+
+#page-login .page-card {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+
+.login-page-wrapper {
+  width: 480px;
+  max-width: 90%;
+}
+
+
+#page-login .page-card-head,
+#page-login .page-card-body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  #page-login {
+    padding: 15px !important;
+  }
+  .login-page-wrapper {
+    max-width: none !important;
+  }
+}
+
+.login-content.page-card {
+  width: 480px !important;
+  max-width: 90% !important;
 }
