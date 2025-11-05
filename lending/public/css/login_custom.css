@@ -1,0 +1,11 @@
+#page-login {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.page-content div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}

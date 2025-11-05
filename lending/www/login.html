@@ -52,7 +52,9 @@
 {% endmacro %}
 
 {% block head_include %}
+
 {{ include_style('login.bundle.css') }}
+{{ include_style('/assets/lending/css/login_custom.css') }}
 {% endblock %}
 
 {% macro logo_section(title=null) %}
