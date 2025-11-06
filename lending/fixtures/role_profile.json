@@ -1,1 +1,14 @@
-[]
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-11-06 12:34:20.567117",
+  "name": "WH Admin Profile",
+  "role_profile": "WH Admin Profile",
+  "roles": [
+   {
+    "role": "WH Admin"
+   }
+  ]
+ }
+]

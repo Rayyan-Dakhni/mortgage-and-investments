@@ -108,6 +108,8 @@ website_context = {
     "navbar_template": "navbar/navbar.html"
 }
 app_include_css = "/assets/lending/css/navbar_override.css"
+# app_include_js = "/assets/lending/js/sidebar_control.js"
+
 
 
 # Home Pages
