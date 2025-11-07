@@ -66,6 +66,8 @@ fixtures = [
 	# --- Scripts (client/server) attached to ERPNext doctypes (JE, GL, etc.) ---
     {"dt": "Client Script", "filters": [["module", "=", "Lending"]]},
     {"dt": "Server Script", "filters": [["module", "=", "Lending"]]},
+	{"dt": "Property Setter", "filters": [["doc_type", "in", [
+      "User", "Journal Entry", "Payment Entry", "GL Entry"]]]},
      # --- Reports, Print Formats, Workspaces you add for WH ---
     {"dt": "Report", "filters": [["module", "=", "Lending"]]},
     {"dt": "Print Format", "filters": [["module", "=", "Lending"]]},
