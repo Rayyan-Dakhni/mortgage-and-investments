@@ -1,1 +1,46 @@
-[]
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "User",
+  "enabled": 1,
+  "modified": "2025-11-06 14:22:07.188404",
+  "module": null,
+  "name": "remove permission button",
+  "script": "frappe.ui.form.on('User', {\r\n    refresh: function(frm) {\r\n        // Wait for Frappe to render the top buttons\r\n        setTimeout(() => {\r\n            frm.page.wrapper.find('.btn.btn-default.ellipsis').each(function() {\r\n                const btnText = $(this).clone().children().remove().end().text().trim();\r\n                if (btnText === 'Permissions') {\r\n                    $(this).hide();\r\n                }\r\n            });\r\n        }, 500);\r\n    }\r\n});\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "User",
+  "enabled": 1,
+  "modified": "2025-11-06 14:37:20.233277",
+  "module": null,
+  "name": "remove security dropdown",
+  "script": "frappe.ui.form.on('User', {\r\n    onload: function(frm) {\r\n        // Check if logged-in user has WH Admin role\r\n        if (frappe.user.has_role('WH Admin')) {\r\n            // Hide the Security Settings section\r\n            const security_section = frm.fields_dict['security_settings_section'];\r\n            if (security_section && security_section.wrapper) {\r\n                $(security_section.wrapper).hide();\r\n            }\r\n\r\n            // OR simpler: hide by label text (in case section name differs)\r\n            $('div.section-head:contains(\"Security Settings\")').closest('.form-section').hide();\r\n        }\r\n    }\r\n});\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Global Defaults",
+  "enabled": 1,
+  "modified": "2025-11-06 17:10:49.557739",
+  "module": null,
+  "name": "test sidebar",
+  "script": "/* --------------------------------------------------------------\r\n   GLOBAL SIDEBAR + HOME-CARD FILTER\r\n   Works for every user (except Administrator)\r\n   -------------------------------------------------------------- */\r\nfrappe.ready(() => {\r\n    // -----------------------------------------------------------------\r\n    // 1. CONFIG – add / remove roles and the workspaces they may see\r\n    // -----------------------------------------------------------------\r\n    const ROLE_WORKSPACES = {\r\n        // role (exact name) → array of workspace labels that are allowed\r\n        \"WH ADMIN\":   [\"Home\", \"Users\"],\r\n        \"Finance\":    [\"Home\", \"Accounts\"],\r\n        \"Operations\": [\"Home\", \"Projects\"],\r\n        \"Legal\":      [\"Home\", \"Documents\"],\r\n        \"Advisor\":    [\"Home\", \"CRM\"]\r\n        // add more roles here …\r\n    };\r\n\r\n    // -----------------------------------------------------------------\r\n    // 2. Do not run for Administrator\r\n    // -----------------------------------------------------------------\r\n    if (frappe.user.has_role(\"Administrator\")) return;\r\n\r\n    // -----------------------------------------------------------------\r\n    // 3. Get current user roles (client-side, no extra call)\r\n    // -----------------------------------------------------------------\r\n    const userRoles = frappe.boot.user.roles || [];\r\n\r\n    // -----------------------------------------------------------------\r\n    // 4. Determine allowed workspaces\r\n    // -----------------------------------------------------------------\r\n    let allowed = [\"Home\"];                 // always keep Home\r\n    for (const role in ROLE_WORKSPACES) {\r\n        if (userRoles.includes(role)) {\r\n            allowed = ROLE_WORKSPACES[role];\r\n            break;                       // first matching role wins\r\n        }\r\n    }\r\n\r\n    // -----------------------------------------------------------------\r\n    // 5. Helper – normalise text\r\n    // -----------------------------------------------------------------\r\n    const norm = s => (s || \"\").trim();\r\n\r\n    // -----------------------------------------------------------------\r\n    // 6. Core hiding function\r\n    // -----------------------------------------------------------------\r\n    const hideUnwanted = () => {\r\n        // ---- Sidebar items ------------------------------------------------\r\n        document.querySelectorAll('.standard-sidebar-section .sidebar-item').forEach(itm => {\r\n            const label = norm(itm.getAttribute('data-label'));\r\n            itm.style.display = allowed.includes(label) ? '' : 'none';\r\n        });\r\n\r\n        // ---- Home-page workspace cards -----------------------------------\r\n        document.querySelectorAll('.workspace-card-container').forEach(card => {\r\n            const title = norm(card.querySelector('.workspace-title')?.innerText);\r\n            if (title) {\r\n                card.style.display = allowed.includes(title) ? '' : 'none';\r\n            }\r\n        });\r\n\r\n        // ---- Hide empty sidebar sections ---------------------------------\r\n        document.querySelectorAll('.standard-sidebar-section').forEach(sec => {\r\n            const visible = sec.querySelectorAll('.sidebar-item[style=\"\"], .sidebar-item:not([style])').length;\r\n            if (visible === 0) sec.style.display = 'none';\r\n        });\r\n    };\r\n\r\n    // -----------------------------------------------------------------\r\n    // 7. Run several times (Frappe loads items async)\r\n    // -----------------------------------------------------------------\r\n    hideUnwanted();\r\n    setTimeout(hideUnwanted, 600);\r\n    setTimeout(hideUnwanted, 1200);\r\n    setTimeout(hideUnwanted, 2000);\r\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Journal Entry",
+  "enabled": 1,
+  "modified": "2025-11-07 12:35:13.783807",
+  "module": null,
+  "name": "hide journal entry",
+  "script": "frappe.ui.form.on('Journal Entry', {\r\n    refresh: function(frm) {\r\n\r\n        // 1. Hide fields normally (if possible)\r\n        var fields_to_hide = [\r\n            'company',\r\n            'loan_transfer',\r\n            'loan',\r\n            'value_date',\r\n            'reference_number',\r\n            'reference_date',\r\n            'multi_currency'\r\n        ];\r\n\r\n        fields_to_hide.forEach(function(fieldname) {\r\n            frm.set_df_property(fieldname, 'hidden', 1);\r\n        });\r\n\r\n        // 2. Hide collapsible sections by label\r\n        setTimeout(function() {\r\n            $('div.section-head:contains(\"Reference\")').closest('.form-section').hide();\r\n            $('div.section-head:contains(\"Printing Settings\")').closest('.form-section').hide();\r\n            $('div.section-head:contains(\"More Information\")').closest('.form-section').hide();\r\n\r\n            // 3. Hide Reference Number & Reference Date specifically\r\n            $('label.control-label:contains(\"Reference Number\")').closest('.frappe-control').hide();\r\n            $('label.control-label:contains(\"Reference Date\")').closest('.frappe-control').hide();\r\n        }, 500);\r\n\r\n        // 4. Restrict Entry Type Dropdown\r\n        frm.set_df_property('entry_type', 'options', 'Journal Entry\\nOpening Entry');\r\n\r\n        // 5. Change the label 'From Template' to 'Choose Template'\r\n        frm.set_df_property('from_template', 'label', 'Choose Template');\r\n    }\r\n});\r\n",
+  "view": "Form"
+ }
+]
