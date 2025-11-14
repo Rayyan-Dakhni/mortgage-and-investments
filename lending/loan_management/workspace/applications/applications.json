@@ -1,7 +1,7 @@
 {
  "app": "lending",
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Loan Applications\"}}]",
+ "content": "[{\"id\":\"m83evpHy8Q\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Loan Applications</span>\",\"col\":12}}]",
  "creation": "2025-05-07 14:52:02.197075",
  "custom_blocks": [],
  "docstatus": 0,
@@ -16,7 +16,7 @@
  "link_to": "Loan Application",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-07-18 15:42:27.940509",
+ "modified": "2025-11-14 12:58:52.480610",
  "modified_by": "Administrator",
  "module": "Loan Management",
  "name": "Applications",
