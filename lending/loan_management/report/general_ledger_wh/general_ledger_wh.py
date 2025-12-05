@@ -31,6 +31,24 @@ def execute(filters=None):
             "width": 200
         },
         {
+            "label": _("Sub Account"),
+            "fieldname": "sub_account",
+            "fieldtype": "Data",
+            "width": 200
+        },
+        {
+            "label": _("From Account"),
+            "fieldname": "from_account",
+            "fieldtype": "Data",
+            "width": 150
+        },
+        {
+            "label": _("To Account"),
+            "fieldname": "to_account",
+            "fieldtype": "Data",
+            "width": 150
+        },
+        {
             "label": _("Against Account"),
             "fieldname": "against",
             "fieldtype": "Link",

@@ -21,6 +21,24 @@
    "width": 0
   },
   {
+   "fieldname": "Sub Account",
+   "fieldtype": "Data",
+   "label": "Sub Account",
+   "width": 0
+  },
+  {
+   "fieldname": "From Account",
+   "fieldtype": "Data",
+   "label": "From Account",
+   "width": 0
+  },
+  {
+   "fieldname": "To Account",
+   "fieldtype": "Data",
+   "label": "To Account",
+   "width": 0
+  },
+  {
    "fieldname": "Against Account",
    "fieldtype": "Data",
    "label": "Against Account",

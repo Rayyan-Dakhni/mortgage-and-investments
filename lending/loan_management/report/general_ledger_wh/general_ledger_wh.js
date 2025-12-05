@@ -56,6 +56,28 @@ frappe.query_reports["General Ledger wh"] = {
 			}
 		},
 
+		// === New filters for Sub Account, From Account, To Account ===
+		{
+			fieldname: "sub_account",
+			label: __("Sub Account"),
+			fieldtype: "Select",
+			options: "Admin fee\nAdministration fee\nBroker fee\nBrokerage fee\nBrokerage fee 1\nBrokerage fee 2\nCash\nCommitment fee\nCommitmnet fee\nExtension amount\nExtension fee\nExtension proceeds\nFeb 1 payment\nFeb payment\nFirst mortgage payout\nFirst mtg payment\nFrancesca Bruno TFSA\nFudns sent to lawyer\nFunds advacned to lawyer\nFunds advanced to lawyer\nFunds disbursed to client\nFunds received\nFunds received back\nFunds received from Olympia\nFunds sent to borrower\nFunds sent to lawyer\nFunds to lawyer\nFunds to payout first mortgage\nFunds transferred to 1077932\nGeneroso Bruno TFSA\nGianpiero Pisciotta TFSA\nGiovina Di Matteo TFSA\nGiulia Dippolippo TFSA\nHelio Veiga RRSP\nIan Shoub RRSP\nIan Shoub TFSA\nInsurance\nInvestment account 1\nInvestment account 2\nIuliu Szabo TFSA\nJan payment\nJanety Santeramo TFSA\nJanice Genova TFSA\nJill Hernandez RRSP\nJohn Simmen (RRSP)\nJordan Applebaum RRSP\nKarin Schuster TFSA\nKim Pak (Non-registered)\nKrysia Mussakowski TFSA\nKsenia Kotova part 1\nKsenia Kotova part 2\nLegal fee\nLena Bellissimo RRIF\nLinda Simmen (Non-registered)\nLIRA\nLorenzo Bellissimo RRIF\nLucia Di Matteo RRSP\nLuigi Dippolippo TFSA\nMariya Iqbal TFSA\nMark Dominichiello\nMatthew Genova RRSP\nMatthew Gneova TFSA\nMaya Dominelli\nMelissa Rubinoff TFSA\nMoraven Consulting Inc.\nNeelam Sharma RRSP\nNita Jobanputra LIRA\nNita Jobanputra RRSP\nOriginaiton fee\nOrigination fee\nOther\nOutstanding payments on first\nPart 1\nPart 2\nPart 3\nPart 4\nPer diem\nPeter Guido RRSP\nPrepaid interest\nPrepaid interest on first\nPrepaid interest on second\nPrincipal\nPrincipal for 225 Milestone\nPrincipal for 45 Wellington\nPrincipal funds received\nPrincipal paydown\nPrincipal paydown received\nProceeds advanced to lawyer\nProceeds disbrused to lawyer\nProfessional Fees\nPurushottam Sharma RRSP\nPurushottam Sharma TFSA\nRachel Rubinoff TFSA\nRenewal fee\nRetainer disbursed\nRetainer received\nRetainer recevied\nRetainer sent\nRetainer sent to lawyer\nRetiner received\nRevenue\nRobert Kerzner TFSA\nRRSP\nSamantha Kerzner FHSA\nSamantha Kerzner TFSA\nSanjay Jobanputra RRSP\nSean O'Leary TFSA\nShauna Merkur TFSA\nShrimati Naipaul TFSA\nSita Naipaul (non registered)\nSita Naipaul (personal)\nSita Naipaul TFSA\nSteven Bellissimo TFSA\nSydney kerzner TFSA\nTeresa Luchetta (personal)\nThird party insurance\nTotal extension amount\nTotal funds sent to lawyer\nTracy Coutu RRSP\nTransferred to 1077932\nVeronica Astone TFSA\nVictor Biderman (RRIF)\nViggolupo\nViggolupo (Anna Maria)\nVince Genova TFSA\nVivian Di Matteo TFSA",
+			default: "",
+			width: "200px"
+		},
+		{
+			fieldname: "from_account",
+			label: __("From Account"),
+			fieldtype: "Data",
+			width: "150px"
+		},
+		{
+			fieldname: "to_account",
+			label: __("To Account"),
+			fieldtype: "Data",
+			width: "150px"
+		},
+
 		// === HIDDEN FILTERS (still work behind the scenes) ===
 		{
 			fieldname: "company",
@@ -119,3 +141,8 @@ frappe.query_reports["General Ledger wh"] = {
 	collapsible_filters: 1,
 	initial_depth: 0
 };
+
+
+
+
+
