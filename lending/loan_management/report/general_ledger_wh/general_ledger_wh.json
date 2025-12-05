@@ -78,7 +78,7 @@
  "owner": "Administrator",
  "prepared_report": 0,
  "ref_doctype": "GL Entry",
- "report_name": "General Ledger wh",
+ "report_name": "General Ledger",
  "report_type": "Script Report",
  "roles": [],
  "timeout": 0
