@@ -16,7 +16,7 @@
  "link_to": "Loan Repayment",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-07-18 15:42:49.721127",
+ "modified": "2025-12-09 15:55:42.511600",
  "modified_by": "Administrator",
  "module": "Loan Management",
  "name": "Repayments",
@@ -27,7 +27,10 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Loan Manager"
+   "role": "Administrator"
+  },
+  {
+   "role": "Accounts Manager"
   }
  ],
  "sequence_id": 7.0,
