@@ -10,5 +10,17 @@
     "role": "WH Admin"
    }
   ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2025-11-10 08:54:20.412492",
+  "name": "WH_Admin",
+  "role_profile": "WH_Admin",
+  "roles": [
+   {
+    "role": "WH Admin"
+   }
+  ]
  }
 ]
